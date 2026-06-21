@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Omantel SIM Activation Portal</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 50px auto; 
+            padding: 20px; 
+            background-color: #f5f5f5; 
+        } 
+        .container { 
+            background-color: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        } 
+        h1 { 
+            color: #E74C3C; 
+            text-align: center; 
+        } 
+        .form-group { 
+            margin-bottom: 20px; 
+        } 
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: bold; 
+            color: #333; 
+        } 
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+            font-size: 16px; 
+            box-sizing: border-box; 
+        } 
+        button { 
+            width: 100%; 
+            padding: 12px; 
+            background-color: #E74C3C; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            cursor: pointer; 
+        } 
+        button:hover { 
+            background-color: #C0392B; 
+        } 
+        .message { 
+            margin-top: 20px; 
+            padding: 15px; 
+            border-radius: 4px; 
+            display: none; 
+        } 
+        .success { 
+            background-color: #D5F4E6; 
+            color: #27AE60; 
+            border: 1px solid #27AE60; 
+        } 
+        .error { 
+            background-color: #FADBD8; 
+            color: #E74C3C; 
+            border: 1px solid #E74C3C; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h1>🇴🇲 Omantel SIM Activation</h1> 
+        <form id="activationForm"> 
+            <div class="form-group"> 
+                <label for="phoneNumber">Phone Number (e.g., +968 9123 4567):</label> 
+                <input type="text" id="phoneNumber" placeholder="+968 XXXX XXXX" required> 
+            </div> 
+            <button type="submit">Activate SIM</button> 
+        </form> 
+        <div id="message" class="message"></div> 
+    </div> 
+ 
+    <script src="validation.js"></script> 
+<script> 
+document.getElementById('activationForm').addEventListener('submit', function(e) { 
+e.preventDefault(); 
+const phoneNumber = document.getElementById('phoneNumber').value; 
+const messageDiv = document.getElementById('message'); 
+if (validatePhoneNumber(phoneNumber)) { 
+messageDiv.textContent = '   
+Phone number is valid! SIM activation proceeding...'; 
+messageDiv.className = 'message success'; 
+} else { 
+messageDiv.textContent = '  
+or 9 prefix)'; 
+Invalid phone number. Must be in format: +968 XXXX XXXX (8 
+messageDiv.className = 'message error'; 
+} 
+messageDiv.style.display = 'block'; 
+}); 
+</script> 
+</body> 
+</html>
